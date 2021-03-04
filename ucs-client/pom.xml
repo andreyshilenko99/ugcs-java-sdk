@@ -1,0 +1,49 @@
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.ugcs</groupId>
+		<artifactId>ugcs-java-sdk</artifactId>
+		<version>4.2</version>
+	</parent>
+	<artifactId>ucs-client</artifactId>
+	<name>UCS Client</name>
+	<packaging>jar</packaging>
+	<dependencies>
+		<dependency>
+			<groupId>com.ugcs</groupId>
+			<artifactId>ucs-messaging</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.ugcs</groupId>
+			<artifactId>ucs-api</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.6</version>
+				<executions>
+					<execution>
+						<id>assembly-create</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.parent.build.directory}</outputDirectory>
+							<finalName>ugcs-java-sdk</finalName>
+							<descriptors>
+								<descriptor>assembly.xml</descriptor>
+							</descriptors>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
